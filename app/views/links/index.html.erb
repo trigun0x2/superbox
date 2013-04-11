@@ -5,17 +5,19 @@
       $(document).keypress(function(e) {
         var key = e.which;
         var divnum = 0;
-        if (key = 115){
+        if (key == 115){
           $('div:eq('+divnum+')').fadeOut();
-          divnum = divnum +1;
+          divnum++;
+          $('span').text(divnum);
           $('.delete_link:eq('+divnum+')').addClass('selected');
         //do stuff with "key" here...
+
       }
     });
   });
 </script>
 <h3>Listing Links</h3>
-<span class='cool'>1<span>
+<span>1</span>
 <ul>
   <% @links.each do |l| %>
     <%= div_for l do%>
