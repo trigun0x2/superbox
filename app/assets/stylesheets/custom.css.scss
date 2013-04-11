@@ -21,7 +21,9 @@ $grayMediumLight: #eaeaea;
 div {
   width: 30%;
 }
-
+.selected{
+    background-color: #000000;
+    }
 html {
   overflow-y: scroll;
 }
