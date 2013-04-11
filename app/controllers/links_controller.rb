@@ -8,7 +8,6 @@ class LinksController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @links }
-      format.js { render :content_type => 'text/javascript' }
     end
   end
 
