@@ -5,6 +5,9 @@ gem 'bootstrap-sass', '2.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem "font-awesome-rails"
+gem "rails_autolink"
+gem 'jquery-ui-rails'
+gem 'readit'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

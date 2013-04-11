@@ -1,27 +1,17 @@
-<h1>Listing links</h1>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('ul li:first').effect('highlight')
+  });
+</script>
+<h3>Listing Links</h3>
 
-<table>
-  <tr id='test'>
-    <th>Name</th>
-    <th>Read</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @links.each do |link| %>
-
-  <tr>
-    <td><%= link.name %></td>
-    <td><%= link.read %></td>
-    <td><%= link.user_id %></td>
-    <td><%= link_to 'Show', link %></td>
-    <td><%= link_to 'Edit', edit_link_path(link) %></td>
-    <td><%= link_to 'Destroy', link, method: :delete, remote: true, class: 'delete_link' %></td>
-  </tr>
-<% end %>
-</table>
+<ul>
+  <% @links.each do |l| %>
+    <%= div_for l do%>
+      <li><%= link_to 'Delete', l, method: :delete, remote: true %> - <%= auto_link(l.name) %></li>
+    <% end %>  
+  <% end %>
+</ul>
 
 <br />
 

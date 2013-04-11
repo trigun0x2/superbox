@@ -1,10 +1,10 @@
-<%= form_for @new, remote: true do |f| %>
-  <% if @new.errors.any? %>
+<%= form_for @link, remote: true do |f| %>
+  <% if @link.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@new.errors.count, "error") %> prohibited this link from being saved:</h2>
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
 
       <ul>
-      <% @new.errors.full_messages.each do |msg| %>
+      <% @link.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,18 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    Site:<br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :read %><br />
-    <%= f.check_box :read %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save Link' %>
   </div>
 <% end %>

@@ -3,11 +3,12 @@ class LinksController < ApplicationController
   # GET /links.json
   def index
     @links = Link.all
-    @new = Link.new
+    @link = Link.new
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @links }
-      format.js
+      format.js { render :content_type => 'text/javascript' }
     end
   end
 
@@ -49,9 +50,11 @@ class LinksController < ApplicationController
       if @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
         format.json { render json: @link, status: :created, location: @link }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @link.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
