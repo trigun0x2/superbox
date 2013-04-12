@@ -1,6 +1,10 @@
 Testing::Application.routes.draw do
-  resources :links
-  root to: 'links#index'
+  resources :users do
+    resources :links
+    resources :notes
+  end
+
+  root to: 'users#index'
   match '/new', to: 'links#new'
 
   # The priority is based upon order of creation:

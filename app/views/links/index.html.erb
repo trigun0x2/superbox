@@ -1,25 +1,9 @@
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.delete_link:first').addClass('selected');
-    
-      $(document).keypress(function(e) {
-        var key = e.which;
-        var divnum = 0;
-        if (key == 115){
-          $('div:eq('+divnum+')').fadeOut();
-          divnum++;
-          $('span').text(divnum);
-          $('.delete_link:eq('+divnum+')').addClass('selected');
-      }
-    });
-  });
-</script>
 <h3>Listing Links</h3>
 <span>1</span>
 <ul>
   <% @links.each do |l| %>
     <%= div_for l do%>
-      <li><%= link_to 'Delete', l, method: :delete, class: 'delete_link', remote: true %> - <%= auto_link(l.name) %></li>
+      <li><%= link_to 'Delete', l, method: :delete, class: 'delete_link', remote: true %> - <%= auto_link(l.link) %></li>
     <% end %>  
   <% end %>
 </ul>

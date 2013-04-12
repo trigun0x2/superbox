@@ -11,16 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410124627) do
+ActiveRecord::Schema.define(:version => 20130412002531) do
 
   create_table "links", :force => true do |t|
-    t.string   "name"
-    t.boolean  "read"
+    t.string   "link"
+    t.boolean  "read",       :default => false
+    t.integer  "user_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "links", ["link"], :name => "index_links_on_link"
+  add_index "links", ["user_id"], :name => "index_links_on_link_id"
+
+  create_table "notes", :force => true do |t|
+    t.string   "note"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "links", ["user_id"], :name => "index_links_on_user_id"
+  add_index "notes", ["user_id"], :name => "index_notes_on_note_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["name"], :name => "index_users_on_name"
 
 end

@@ -1,2 +1,2 @@
-$('ul li:last').after('<li><%= @link.name %></li>');
-$('.clearme').text('');
+$('ul li:last').after('<li><%= escape_javascript(@link.link) %></li>');
+$('.clearme').val('');

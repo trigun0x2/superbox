@@ -1,5 +1,14 @@
-$(document).ready(function(){
-	$('span').click(function(){
-		$('h1').slideToggle();
-	});	
-});
+  $(document).ready(function(){
+    $('.delete_link:first').addClass('selected');
+    
+      $(document).keypress(function(e) {
+        var key = e.which;
+        var divnum = 0;
+        if (key == 115){
+          $('div:eq('+divnum+')').fadeOut();
+          divnum++;
+          $('span').text(divnum);
+          $('.delete_link:eq('+divnum+')').addClass('selected');
+      }
+    });
+  });

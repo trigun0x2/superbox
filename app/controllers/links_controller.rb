@@ -1,13 +1,20 @@
 class LinksController < ApplicationController
   # GET /links
   # GET /links.json
+  before_filter :get_user
+
+  def get_user
+    @user=User.find(params[:id])
+  end
+
   def index
     @links = Link.all
     @link = Link.new
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @links }
+      format.js
     end
   end
 
